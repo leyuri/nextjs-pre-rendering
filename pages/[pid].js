@@ -28,3 +28,15 @@ export async function getStaticProps(context) {
     },
   };
 }
+
+// Generates `/posts/1` and `/posts/2`
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { pid: "p1" } },
+      { params: { pid: "p2" } },
+      { params: { pid: "p3" } },
+    ],
+    fallback: false, // can also be true or 'blocking'
+  };
+}
